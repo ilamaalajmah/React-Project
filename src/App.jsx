@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // استيراد Router والباقي
 import './App.css';
 import HeroSection from './components/HeroSection';
-// import StatsSection from './components/StatsSection';
 import LatestReviewsSection from './components/LatestReviewsSection';
 import BestRestaurantsSection from './components/BestRestaurantsSection';
 import MailingListSection from './components/MailingListSection';
@@ -9,7 +9,8 @@ import LatestVideosSection from './components/LatestVideosSection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Invite from './components/Invite';
-
+import About from './components/About'; 
+import Contact from './components/Contact'; 
 
 function App() {
   const restaurants = [
@@ -70,17 +71,24 @@ function App() {
   };
 
   return (
-    <div>
+    <Router>
       <Navbar SetExpand={handleExpand} />
-      <HeroSection />
-      {/* <StatsSection /> */}
-      <LatestReviewsSection reviews={reviews} />
-      <BestRestaurantsSection restaurants={restaurants} />
-      <MailingListSection />
-      <LatestVideosSection />
-      <Invite />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <HeroSection />
+            <LatestReviewsSection reviews={reviews} />
+            <BestRestaurantsSection restaurants={restaurants} />
+            <MailingListSection />
+            <LatestVideosSection />
+            <Invite />
+          </>
+        } />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />  
+    </Router>
   );
 }
 

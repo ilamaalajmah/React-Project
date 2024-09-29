@@ -7,6 +7,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="flex justify-between items-center p-6 mt-4 mx-20"> 
       <div className="flex items-center gap-10">
@@ -20,11 +24,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex flex-col md:flex-row md:mt-0">
           <ul className="md:flex md:space-x-8 text-gray-600 font-medium">
-            <li><a href="#" className="hover:text-gray-900">Home</a></li>
-            <li><a href="#" className="hover:text-gray-900">About</a></li>
-            <li><a href="#" className="hover:text-gray-900">Reviews</a></li>
-            <li><a href="#" className="hover:text-gray-900">Videos</a></li>
-            <li><a href="#" className="hover:text-gray-900">Contact</a></li>
+            <li><a href="/" className="hover:text-gray-900">Home</a></li>
+            <li><a href="/about" className="hover:text-gray-900">About</a></li>
+            <li><a href="/reviews" className="hover:text-gray-900">Reviews</a></li>
+            <li><a href="/videos" className="hover:text-gray-900">Videos</a></li>
+            <li><a href="/contact" className="hover:text-gray-900">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -45,8 +49,8 @@ const Navbar = () => {
           </a>
         </div>
         <button className="font-Montserrat text-xs m-3 px-8 py-3 font-bold border-2 border-[#be7c68] text-[#be7c68] hover:bg-white hover:text-[#be7c68] transition duration-150 ease-out tracking-widest">
-  LET'S TALK
-</button>
+          LET'S TALK
+        </button>
       </div>
 
       <div className="md:hidden flex items-center">
@@ -59,19 +63,19 @@ const Navbar = () => {
         <div className="absolute top-20 left-0 w-full bg-white shadow-lg md:hidden">
           <ul className="flex flex-col items-center space-y-4 p-4 text-gray-600 font-medium">
             <li>
-              <a href="#" className="text-[#be7c68] hover:text-gray-900">Home</a>
+              <a href="/" onClick={handleLinkClick} className="text-[#be7c68] hover:text-gray-900">Home</a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-900">About</a>
+              <a href="/about" onClick={handleLinkClick} className="hover:text-gray-900">About</a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-900">Reviews</a>
+              <a href="/reviews" onClick={handleLinkClick} className="hover:text-gray-900">Reviews</a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-900">Videos</a>
+              <a href="/videos" onClick={handleLinkClick} className="hover:text-gray-900">Videos</a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-900">Contact</a>
+              <a href="/contact" onClick={handleLinkClick} className="hover:text-gray-900">Contact</a>
             </li>
           </ul>
         </div>
